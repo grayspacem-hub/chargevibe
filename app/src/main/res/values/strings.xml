@@ -1,4 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <string name="app_name">ChargeVibe</string>
+    <!-- TODO: Replace with ChargeVibe's own Facebook App ID once created -->
+    <!-- Need Eric's FB password to create app at developers.facebook.com -->
+    <string name="facebook_app_id">PLACEHOLDER_NEEDS_FB_APP</string>
+    <string name="facebook_client_token">PLACEHOLDER_NEEDS_FB_TOKEN</string>
 </resources>

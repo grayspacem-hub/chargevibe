@@ -75,6 +75,9 @@ dependencies {
     // Google AdMob SDK
     implementation("com.google.android.gms:play-services-ads:23.6.0")
 
+    // Facebook SDK - Install tracking for Meta ad campaigns
+    implementation("com.facebook.android:facebook-android-sdk:17.0.2")
+
     // Firebase
     implementation(platform("com.google.firebase:firebase-bom:33.7.0"))
     implementation("com.google.firebase:firebase-analytics-ktx")
