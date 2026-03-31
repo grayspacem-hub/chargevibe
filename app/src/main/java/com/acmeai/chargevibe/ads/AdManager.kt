@@ -17,13 +17,13 @@ import com.google.android.gms.ads.rewardedinterstitial.RewardedInterstitialAdLoa
 object AdManager {
     private const val TAG = "AdManager"
 
-    // Test ad unit IDs — replace with real ones before release
-    const val BANNER_AD_UNIT_ID = "ca-app-pub-3940256099942544/6300978111"
-    private const val INTERSTITIAL_AD_UNIT_ID = "ca-app-pub-3940256099942544/1033173712"
-    private const val REWARDED_AD_UNIT_ID = "ca-app-pub-3940256099942544/5224354917"
-    private const val REWARDED_INTERSTITIAL_AD_UNIT_ID = "ca-app-pub-3940256099942544/5354046379"
-    private const val APP_OPEN_AD_UNIT_ID = "ca-app-pub-3940256099942544/9257395921"
-    const val NATIVE_AD_UNIT_ID = "ca-app-pub-3940256099942544/2247696110"
+    // ChargeVibe production ad unit IDs
+    const val BANNER_AD_UNIT_ID = "ca-app-pub-9585402290766094/2067219777"
+    private const val INTERSTITIAL_AD_UNIT_ID = "ca-app-pub-9585402290766094/9084558843"
+    private const val REWARDED_AD_UNIT_ID = "ca-app-pub-9585402290766094/5891419290"
+    private const val REWARDED_INTERSTITIAL_AD_UNIT_ID = "ca-app-pub-9585402290766094/9639092618"
+    private const val APP_OPEN_AD_UNIT_ID = "ca-app-pub-9585402290766094/2662620727"
+    const val NATIVE_AD_UNIT_ID = "ca-app-pub-9585402290766094/8249484746"
 
     private var interstitialAd: InterstitialAd? = null
     private var rewardedAd: RewardedAd? = null

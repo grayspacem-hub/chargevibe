@@ -21,10 +21,10 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.ChargeVibe">
 
-        <!-- AdMob App ID -->
+        <!-- AdMob App ID (ChargeVibe) -->
         <meta-data
             android:name="com.google.android.gms.ads.APPLICATION_ID"
-            android:value="ca-app-pub-9585402290766094~1742785754" />
+            android:value="ca-app-pub-9585402290766094~2854192414" />
 
         <!-- Main Activity -->
         <activity
