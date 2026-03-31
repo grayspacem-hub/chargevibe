@@ -20,23 +20,27 @@ class MainActivity : ComponentActivity() {
 
     private val notificationPermissionLauncher = registerForActivityResult(
         ActivityResultContracts.RequestPermission()
-    ) { _ -> }
+    ) { granted ->
+        // Start service after permission result (whether granted or not)
+        startMonitorService()
+    }
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 
         prefs = PreferencesManager(this)
 
-        // Request notification permission for Android 13+
+        // Request notification permission for Android 13+, then start service
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.TIRAMISU) {
             if (ContextCompat.checkSelfPermission(this, Manifest.permission.POST_NOTIFICATIONS)
                 != PackageManager.PERMISSION_GRANTED) {
                 notificationPermissionLauncher.launch(Manifest.permission.POST_NOTIFICATIONS)
+            } else {
+                startMonitorService()
             }
+        } else {
+            startMonitorService()
         }
-
-        // Start charging monitor service
-        ChargingMonitorService.start(this)
 
         // Load ads
         AdManager.loadAppOpenAd(this)
@@ -48,6 +52,16 @@ class MainActivity : ComponentActivity() {
             ChargeVibeTheme {
                 AppNavigation(prefs)
             }
+        }
+    }
+
+    private fun startMonitorService() {
+        try {
+            ChargingMonitorService.start(this)
+        } catch (e: Exception) {
+            // On some devices, foreground service may fail without notification permission
+            // The service will start on next app launch when permission is granted
+            e.printStackTrace()
         }
     }
 
