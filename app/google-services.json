@@ -1,13 +1,13 @@
 {
   "project_info": {
-    "project_number": "000000000000",
-    "project_id": "chargevibe-placeholder",
-    "storage_bucket": "chargevibe-placeholder.appspot.com"
+    "project_number": "280992971445",
+    "project_id": "chargevibe-app",
+    "storage_bucket": "chargevibe-app.firebasestorage.app"
   },
   "client": [
     {
       "client_info": {
-        "mobilesdk_app_id": "1:000000000000:android:0000000000000000",
+        "mobilesdk_app_id": "1:280992971445:android:4ae2984e3b954490dc5cfc",
         "android_client_info": {
           "package_name": "com.acmeai.chargevibe"
         }
@@ -15,7 +15,7 @@
       "oauth_client": [],
       "api_key": [
         {
-          "current_key": "placeholder-api-key"
+          "current_key": "AIzaSyDwsQ6Ja_yXO-Gtb_1v1Ppipnx3iMmnv3w"
         }
       ],
       "services": {

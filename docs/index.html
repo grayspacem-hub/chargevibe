@@ -1,0 +1,295 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ChargeVibe — Anime Charging Animations for Android</title>
+    <meta name="description" content="Transform your boring charging screen into epic anime-style animations. 12 stunning effects, buttery 60fps, works on lock screen.">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;600;700&display=swap" rel="stylesheet">
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+
+        :root {
+            --cyan: #00D4FF;
+            --purple: #7B2FFF;
+            --pink: #FF69B4;
+            --dark: #0A0E12;
+            --card: #111820;
+        }
+
+        body {
+            font-family: 'Space Grotesk', sans-serif;
+            background: var(--dark);
+            color: #E1E3E5;
+            overflow-x: hidden;
+        }
+
+        /* Animated background */
+        .bg-glow {
+            position: fixed;
+            top: 0; left: 0; right: 0; bottom: 0;
+            z-index: -1;
+            overflow: hidden;
+        }
+        .bg-glow::before {
+            content: '';
+            position: absolute;
+            width: 600px; height: 600px;
+            background: radial-gradient(circle, rgba(0,212,255,0.15) 0%, transparent 70%);
+            top: -200px; left: -100px;
+            animation: float 8s ease-in-out infinite;
+        }
+        .bg-glow::after {
+            content: '';
+            position: absolute;
+            width: 500px; height: 500px;
+            background: radial-gradient(circle, rgba(123,47,255,0.12) 0%, transparent 70%);
+            bottom: -200px; right: -100px;
+            animation: float 10s ease-in-out infinite reverse;
+        }
+        @keyframes float {
+            0%, 100% { transform: translate(0, 0); }
+            50% { transform: translate(60px, 40px); }
+        }
+
+        .container { max-width: 1100px; margin: 0 auto; padding: 0 24px; }
+
+        /* Nav */
+        nav {
+            padding: 20px 0;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+        .logo {
+            font-size: 24px;
+            font-weight: 700;
+            background: linear-gradient(135deg, var(--cyan), var(--purple));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        /* Hero */
+        .hero {
+            text-align: center;
+            padding: 80px 0 60px;
+        }
+        .hero h1 {
+            font-size: clamp(2.5rem, 6vw, 4rem);
+            font-weight: 700;
+            line-height: 1.1;
+            margin-bottom: 20px;
+        }
+        .hero h1 span {
+            background: linear-gradient(135deg, var(--cyan), var(--purple), var(--pink));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+        .hero p {
+            font-size: 1.2rem;
+            color: #8A9297;
+            max-width: 600px;
+            margin: 0 auto 32px;
+            line-height: 1.6;
+        }
+        .cta-btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            padding: 16px 36px;
+            background: linear-gradient(135deg, var(--cyan), var(--purple));
+            color: white;
+            font-size: 1.1rem;
+            font-weight: 600;
+            border: none;
+            border-radius: 50px;
+            cursor: pointer;
+            text-decoration: none;
+            transition: transform 0.2s, box-shadow 0.2s;
+        }
+        .cta-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 8px 30px rgba(0,212,255,0.3);
+        }
+
+        /* Animations showcase */
+        .animations {
+            padding: 60px 0;
+        }
+        .section-title {
+            text-align: center;
+            font-size: 2rem;
+            font-weight: 700;
+            margin-bottom: 12px;
+        }
+        .section-sub {
+            text-align: center;
+            color: #8A9297;
+            margin-bottom: 40px;
+        }
+        .anim-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(160px, 1fr));
+            gap: 16px;
+        }
+        .anim-card {
+            background: var(--card);
+            border-radius: 16px;
+            padding: 24px 16px;
+            text-align: center;
+            border: 1px solid rgba(255,255,255,0.06);
+            transition: transform 0.2s, border-color 0.2s;
+        }
+        .anim-card:hover {
+            transform: translateY(-4px);
+            border-color: var(--cyan);
+        }
+        .anim-icon {
+            font-size: 2.5rem;
+            margin-bottom: 12px;
+            display: block;
+        }
+        .anim-name {
+            font-weight: 600;
+            font-size: 0.95rem;
+        }
+        .anim-tag {
+            display: inline-block;
+            font-size: 0.7rem;
+            padding: 2px 8px;
+            border-radius: 20px;
+            margin-top: 8px;
+            background: rgba(123,47,255,0.2);
+            color: var(--purple);
+        }
+        .anim-tag.free {
+            background: rgba(0,212,255,0.15);
+            color: var(--cyan);
+        }
+
+        /* Features */
+        .features {
+            padding: 60px 0;
+        }
+        .feat-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+            gap: 24px;
+        }
+        .feat-card {
+            background: var(--card);
+            border-radius: 16px;
+            padding: 28px;
+            border: 1px solid rgba(255,255,255,0.06);
+        }
+        .feat-card h3 {
+            font-size: 1.15rem;
+            margin-bottom: 8px;
+        }
+        .feat-card p {
+            color: #8A9297;
+            line-height: 1.5;
+            font-size: 0.95rem;
+        }
+        .feat-emoji {
+            font-size: 1.8rem;
+            margin-bottom: 12px;
+            display: block;
+        }
+
+        /* Footer */
+        footer {
+            text-align: center;
+            padding: 48px 0;
+            color: #555;
+            font-size: 0.85rem;
+            border-top: 1px solid rgba(255,255,255,0.06);
+        }
+        footer a { color: var(--cyan); text-decoration: none; }
+
+        @media (max-width: 640px) {
+            .anim-grid { grid-template-columns: repeat(3, 1fr); gap: 10px; }
+            .anim-card { padding: 16px 8px; }
+            .anim-icon { font-size: 2rem; }
+        }
+    </style>
+</head>
+<body>
+    <div class="bg-glow"></div>
+    <div class="container">
+        <nav>
+            <div class="logo">⚡ ChargeVibe</div>
+        </nav>
+
+        <section class="hero">
+            <h1>Charging Never<br>Looked <span>This Good</span></h1>
+            <p>12 stunning anime-style charging animations that light up your screen when you plug in. 60fps, works on lock screen, zero battery impact.</p>
+            <a href="https://play.google.com/store/apps/details?id=com.acmeai.chargevibe" class="cta-btn">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M3.609 1.814L13.792 12 3.61 22.186a.996.996 0 0 1-.61-.92V2.734a1 1 0 0 1 .609-.92zM14.835 13.043l2.823 1.634-8.672 5.014 5.849-6.648zm2.823-4.72l-2.823 1.634-5.849-6.648 8.672 5.014zM18.69 12l2.31 1.337-2.672 1.545L15.836 12l2.492-2.882L21 10.663 18.69 12z"/></svg>
+                Get on Google Play
+            </a>
+        </section>
+
+        <section class="animations">
+            <h2 class="section-title">12 Anime Animations</h2>
+            <p class="section-sub">Pure Compose Canvas — no GIFs, no lag, pure 60fps magic</p>
+            <div class="anim-grid">
+                <div class="anim-card"><span class="anim-icon">⚡</span><div class="anim-name">Lightning Bolt</div><span class="anim-tag free">FREE</span></div>
+                <div class="anim-card"><span class="anim-icon">🌸</span><div class="anim-name">Sakura Petals</div><span class="anim-tag free">FREE</span></div>
+                <div class="anim-card"><span class="anim-icon">🐉</span><div class="anim-name">Dragon Fire</div><span class="anim-tag free">FREE</span></div>
+                <div class="anim-card"><span class="anim-icon">🔌</span><div class="anim-name">Cyber Circuit</div><span class="anim-tag free">FREE</span></div>
+                <div class="anim-card"><span class="anim-icon">🌊</span><div class="anim-name">Ocean Wave</div><span class="anim-tag free">FREE</span></div>
+                <div class="anim-card"><span class="anim-icon">🌌</span><div class="anim-name">Galaxy Spiral</div><span class="anim-tag free">FREE</span></div>
+                <div class="anim-card"><span class="anim-icon">💜</span><div class="anim-name">Neon Pulse</div><span class="anim-tag">PREMIUM</span></div>
+                <div class="anim-card"><span class="anim-icon">💎</span><div class="anim-name">Crystal Growth</div><span class="anim-tag">PREMIUM</span></div>
+                <div class="anim-card"><span class="anim-icon">🔥</span><div class="anim-name">Flame Phoenix</div><span class="anim-tag">PREMIUM</span></div>
+                <div class="anim-card"><span class="anim-icon">🌈</span><div class="anim-name">Aurora Borealis</div><span class="anim-tag">PREMIUM</span></div>
+                <div class="anim-card"><span class="anim-icon">🟩</span><div class="anim-name">Pixel Rain</div><span class="anim-tag">PREMIUM</span></div>
+                <div class="anim-card"><span class="anim-icon">💛</span><div class="anim-name">Spirit Energy</div><span class="anim-tag">PREMIUM</span></div>
+            </div>
+        </section>
+
+        <section class="features">
+            <h2 class="section-title">Why ChargeVibe?</h2>
+            <p class="section-sub">Competitors are 3.5★ trash. We're different.</p>
+            <div class="feat-grid">
+                <div class="feat-card">
+                    <span class="feat-emoji">🎯</span>
+                    <h3>Actually Works on Android 14+</h3>
+                    <p>Built with the latest Android APIs. No crashes, no force closes, no "this app was made in 2019" vibes.</p>
+                </div>
+                <div class="feat-card">
+                    <span class="feat-emoji">🎨</span>
+                    <h3>Smooth 60fps Canvas</h3>
+                    <p>Pure Jetpack Compose Canvas animations — no janky GIFs, no laggy WebViews. Buttery smooth on every device.</p>
+                </div>
+                <div class="feat-card">
+                    <span class="feat-emoji">🔒</span>
+                    <h3>Lock Screen Magic</h3>
+                    <p>Shows your animation right on the lock screen when you plug in. Tap to dismiss. Auto-dismisses when unplugged.</p>
+                </div>
+                <div class="feat-card">
+                    <span class="feat-emoji">🔋</span>
+                    <h3>Battery Dashboard</h3>
+                    <p>Real-time stats: temperature, voltage, charging speed, health status, and estimated time to full.</p>
+                </div>
+                <div class="feat-card">
+                    <span class="feat-emoji">🌙</span>
+                    <h3>Dark Theme Default</h3>
+                    <p>Material 3 dark theme that looks gorgeous. Because anime + dark mode = chef's kiss.</p>
+                </div>
+                <div class="feat-card">
+                    <span class="feat-emoji">📱</span>
+                    <h3>No Bloat</h3>
+                    <p>Small install size, minimal permissions, no sketchy background processes. Just good vibes when you charge.</p>
+                </div>
+            </div>
+        </section>
+
+        <footer>
+            <p>Made by <a href="https://acmeai.co">ACME AI</a> · © 2026</p>
+        </footer>
+    </div>
+</body>
+</html>
