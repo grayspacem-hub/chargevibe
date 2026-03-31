@@ -1,0 +1,6 @@
+🚀 Initial Release
+• 12 anime-style charging animations
+• Lock screen overlay with battery display
+• Battery dashboard with real-time stats
+• Customizable speed, sound, and display options
+• Material 3 dark theme UI

@@ -1,0 +1,50 @@
+Transform your boring charging screen into a stunning anime experience.
+
+ChargeVibe displays beautiful, smooth 60fps animations on your lock screen every time you plug in your charger. Choose from 12 unique anime-inspired styles — from crackling Electric Lightning to a majestic Flame Phoenix rising with your battery level.
+
+⚡ KEY FEATURES
+
+🎨 12 Anime Charging Animations
+• Electric Lightning Bolt — crackling energy
+• Sakura Petals — cherry blossoms swirling
+• Dragon Fire — fire dragon breathing energy
+• Cyber Circuit — Tron-style flowing circuits
+• Ocean Wave — crashing waves filling your battery
+• Galaxy Spiral — cosmic energy vortex
+• Neon Pulse — retro neon heartbeat
+• Crystal Growth — crystals forming as you charge
+• Flame Phoenix — phoenix rising with your charge
+• Aurora Borealis — northern lights shimmer
+• Pixel Rain — matrix-style digital rain
+• Spirit Energy — DBZ-style power aura
+
+🔒 Lock Screen Display
+Animations show right on your lock screen when you plug in. Tap to dismiss, or it auto-dismisses when you unplug. No need to unlock your phone.
+
+🔋 Battery Dashboard
+Real-time battery stats including:
+• Current charge level
+• Temperature monitoring
+• Voltage and current readings
+• Battery health status
+• Estimated time to full charge
+
+⚙️ Customizable
+• Adjust animation speed
+• Toggle sound effects
+• Show/hide battery percentage overlay
+• Enable/disable charging overlay
+
+💎 Premium Animations
+Unlock 6 exclusive premium animations by watching a short video. No subscriptions, no hidden fees.
+
+🎯 Built for Modern Android
+• Smooth 60fps Jetpack Compose Canvas animations (not laggy GIFs)
+• Works perfectly on Android 8.0 through Android 15
+• Dark theme by default — looks gorgeous
+• Minimal battery impact
+• Small install size, no bloat
+
+Unlike other charging animation apps that crash, lag, or blast you with ads every 5 seconds, ChargeVibe is built with care. Clean design, smart ad timing, and buttery smooth animations.
+
+Download ChargeVibe and make every charge an experience. ⚡
